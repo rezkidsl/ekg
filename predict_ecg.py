@@ -18,7 +18,7 @@ def predict(lines, status):
 
     df_test = pd.DataFrame(fitur_n_json)
     prediksi = loaded_model.predict(df_test.values)
-    prediksi = loaded_model.predict_proba(df_inference.values)
+    prediksi = loaded_model.predict_proba(df_test.values)
     if prediksi.argmax() == 1:
         return {'predict': 'AF', 'confidence': prediksi[0][prediksi.argmax()]}
     else:
