@@ -20,6 +20,6 @@ def predict(lines, status):
     prediksi = loaded_model.predict(df_test.values)
     prediksi = loaded_model.predict_proba(df_test.values)
     if prediksi.argmax() == 1:
-        return {'predict': 'AF', 'confidence': round(prediksi[0][prediksi.argmax()],2)}
+        return {'predict': 'AF', 'confidence': prediksi[0][prediksi.argmax()]}
     else:
-        return {'predict': 'Normal', 'confidence': round(prediksi[0][prediksi.argmax()],2)}
+        return {'predict': 'Normal', 'confidence': prediksi[0][prediksi.argmax()]}
